@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="710.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.controller.Ricerca">
+   <children>
+      <Label layoutX="265.0" layoutY="14.0" text="RICERCA">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="235.0" layoutY="134.0" text="RISULTATI RICERCA:" />
+      <TextArea fx:id="risultatiRicerca" editable="false" layoutX="7.0" layoutY="153.0" prefHeight="124.0" prefWidth="587.0" />
+      <Button fx:id="bottoneTitolo" layoutX="32.0" layoutY="47.0" mnemonicParsing="false" onAction="#ricercaTitolo" text="per titolo: " />
+      <Button fx:id="bottoneAutore" layoutX="399.0" layoutY="47.0" mnemonicParsing="false" onAction="#ricercaAutore" text="per autore:" />
+      <TextField fx:id="testoTitolo" layoutX="32.0" layoutY="95.0" visible="false" />
+      <TextField fx:id="testoAutore" layoutX="399.0" layoutY="95.0" visible="false" />
+      <TextField fx:id="id" layoutX="90.0" layoutY="287.0" prefHeight="29.0" prefWidth="83.0" />
+      <Label layoutX="14.0" layoutY="292.0" text="id_prodotto: " />
+      <Button layoutX="175.0" layoutY="287.0" mnemonicParsing="false" onAction="#addCart" text="aggiungi al carrello" />
+      <TextField fx:id="contatore" editable="false" layoutX="417.0" layoutY="287.0" prefHeight="29.0" prefWidth="30.0" text="0" />
+      <Label layoutX="335.0" layoutY="292.0" text="contatore: " />
+      <Button fx:id="bottoneRicerca" layoutX="248.0" layoutY="95.0" mnemonicParsing="false" onAction="#ricerca" text="avvia ricerca" />
+      <Label fx:id="infoProdotto" layoutX="87.0" layoutY="323.0" text="info prodotto" />
+      <TextArea fx:id="prodottiAggiunti" editable="false" layoutX="8.0" layoutY="350.0" prefHeight="131.0" prefWidth="587.0" />
+      <Label fx:id="id_member" layoutX="205.0" layoutY="503.0" text="Label" visible="false" />
+      <Button fx:id="mostraCarrBott" layoutX="14.0" layoutY="498.0" mnemonicParsing="false" onAction="#mostraCarrello" text="mostra tutto il mio carrello" />
+      <TextArea fx:id="risultatoCarrello" editable="false" layoutX="14.0" layoutY="537.0" prefHeight="124.0" prefWidth="575.0" visible="false" />
+   </children>
+</AnchorPane>
