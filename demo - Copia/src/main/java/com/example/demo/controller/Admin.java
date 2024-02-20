@@ -45,13 +45,11 @@ public class Admin {
         product.setAvailable(true);
         product.setOwner(null);
         pdc.updateProduct(product);//Product.editProdDisp(Integer.parseInt(prodRestText.getText()), "true");
-        //Member.resetOwner(Integer.parseInt(prodRestText.getText()));
         prodRestText.setText("");
         showTableProduct();
 
     }
     public void prodNondisp(ActionEvent actionEvent) {
-        //Product.editProdDisp(Integer.parseInt(prodNondispText.getText()), "false");
         product = pdc.getProduct(Integer.parseInt(prodNondispText.getText()));
         product.setAvailable(false);
         pdc.updateProduct(product);
@@ -60,7 +58,6 @@ public class Admin {
     }
 
     public void utenteDis(ActionEvent actionEvent) {
-        //Member.editMemberDisp(utenteDisText.getText(), "false");
         member = mdc.getMember(utenteDisText.getText());
         member.setAuthorized(false);
         mdc.updateMember(member);
@@ -69,7 +66,6 @@ public class Admin {
     }
 
     public void utenteRiab(ActionEvent actionEvent) {
-        //Member.editMemberDisp(utenteRiabText.getText(), "true");
         member = mdc.getMember(utenteRiabText.getText());
         member.setAuthorized(true);
         mdc.updateMember(member);
@@ -78,8 +74,6 @@ public class Admin {
     }
 
     public void showTableProduct() {
-        //tableProductText.setText(Product.tableProduct());
-        //List<Product> products = new ArrayList<>();
         List<Product> products = pdc.getAllProducts();
         String table = "";
         for(Product product: products){
@@ -88,7 +82,6 @@ public class Admin {
         tableProductText.setText(table);
     }
     public void showTableMember() {
-        //tableMemberText.setText(Member.tableMember());
         List<Member> members = mdc.getAllMembers();
         String table = "";
         for(Member member: members){
