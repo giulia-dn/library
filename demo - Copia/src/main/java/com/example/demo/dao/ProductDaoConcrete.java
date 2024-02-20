@@ -40,8 +40,6 @@ public class ProductDaoConcrete implements ProductDao {
                 sql = "INSERT INTO product(id_product, product, title, author, available, owner) VALUES ("+id+", '"+product+"', '"+title+"', '"+author+"', "+available+", '"+p.getOwner()+"');";
             else
                 sql = "INSERT INTO product(id_product, product, title, author, available) VALUES ("+id+", '"+product+"', '"+title+"', '"+author+"', "+available+");";
-
-            //sql = "INSERT INTO product(id_product, product, title, author, available) VALUES ("+id+", '"+product+"', '"+title+"', '"+author+"', "+available+");";
             st = cn.createStatement();
             st.executeUpdate(sql);
             cn.close();
@@ -248,7 +246,6 @@ public class ProductDaoConcrete implements ProductDao {
                     products.add(Ebook.getInstance(rs.getInt("id_product"), rs.getString("title"), rs.getString("author"), rs.getBoolean("available"), rs.getString("owner")));
                 }else
                     System.out.println("errore");
-                //products.add(new com.example.demo.model.Product(rs.getInt("id_product"), rs.getString("product"), rs.getString("title"), rs.getString("author"), rs.getBoolean("available")));
                 result.append("id_product=").append(rs.getString("id_product")).append(", product='").append(rs.getString("product")).append("', title='").append(rs.getString("title")).append("', author='").append(rs.getString("author")).append("', available='").append(rs.getString("available")).append("', owner='").append(rs.getString("owner")).append("'\n");
             }
             cn.close();
@@ -283,7 +280,6 @@ public class ProductDaoConcrete implements ProductDao {
                     products.add(Ebook.getInstance(rs.getInt("id_product"), rs.getString("title"), rs.getString("author"), rs.getBoolean("available"), rs.getString("owner")));
                 }else
                     System.out.println("errore");
-                //products.add(new com.example.demo.model.Product(rs.getInt("id_product"), rs.getString("product"), rs.getString("title"), rs.getString("author"), rs.getBoolean("available")));
                 result.append("id_product=").append(rs.getString("id_product")).append(", product='").append(rs.getString("product")).append("', title='").append(rs.getString("title")).append("', author='").append(rs.getString("author")).append("', available='").append(rs.getString("available")).append("', owner='").append(rs.getString("owner")).append("'\n");
             }
             cn.close();
