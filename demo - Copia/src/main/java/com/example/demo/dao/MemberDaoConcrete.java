@@ -94,7 +94,6 @@ public class MemberDaoConcrete implements MemberDao {
                 authorized = "true";
             else
                 authorized = "false";
-            //sql = "UPDATE product SET title='"+title+"', author='"+author+"', available='"+available+"', owner='"+owner+"' WHERE id_product="+id+";";
             sql = "UPDATE member SET password='"+password+"', professione='"+professione+"', authorized="+authorized+" WHERE id_member='"+id+"';";
             st = cn.createStatement();
             st.executeUpdate(sql);
