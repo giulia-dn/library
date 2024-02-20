@@ -35,7 +35,7 @@ public class MemberDaoConcrete implements MemberDao {
             else
                 authorized = "false";
 
-            sql = "INSERT INTO product(id_member, password, professione, authorized) VALUES ('"+id+"', '"+password+"', '"+professione+"', "+authorized+");";
+            sql = "INSERT INTO member(id_member, password, professione, authorized) VALUES ('"+id+"', '"+password+"', '"+professione+"', "+authorized+");";
             st = cn.createStatement();
             st.executeUpdate(sql);
             cn.close();
@@ -49,6 +49,26 @@ public class MemberDaoConcrete implements MemberDao {
 
     @Override
     public void removeMember(Member member) {
+        Connection cn;
+        Statement st;
+        ResultSet rs;
+        String sql;
+        try {
+            Class.forName(JDBC_DRIVER);
+        } catch (ClassNotFoundException e) {
+            System.out.println("ClassNotFoundException :");
+            System.err.println(e.getMessage());
+        }
+        try {//crea connessione al database
+            cn = DriverManager.getConnection(DB_URL, "root", "");
+            String id = member.getId_member();
+            sql = "DELETE FROM member WHERE id_member='"+id+"';";
+            st = cn.createStatement();
+            st.executeUpdate(sql);
+            cn.close();
+        } catch (SQLException e) {
+            System.out.println("errore:" + e.getMessage());
+        }
 
     }
 

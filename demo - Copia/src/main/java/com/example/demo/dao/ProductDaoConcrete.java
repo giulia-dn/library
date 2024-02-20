@@ -36,8 +36,12 @@ public class ProductDaoConcrete implements ProductDao {
                 available = "true";
             else
                 available = "false";
+            if(!Objects.equals(p.getOwner(), "null"))
+                sql = "INSERT INTO product(id_product, product, title, author, available, owner) VALUES ("+id+", '"+product+"', '"+title+"', '"+author+"', "+available+", '"+p.getOwner()+"');";
+            else
+                sql = "INSERT INTO product(id_product, product, title, author, available) VALUES ("+id+", '"+product+"', '"+title+"', '"+author+"', "+available+");";
 
-            sql = "INSERT INTO product(id_product, product, title, author, available) VALUES ("+id+", '"+product+"', '"+title+"', '"+author+"', "+available+");";
+            //sql = "INSERT INTO product(id_product, product, title, author, available) VALUES ("+id+", '"+product+"', '"+title+"', '"+author+"', "+available+");";
             st = cn.createStatement();
             st.executeUpdate(sql);
             cn.close();
@@ -129,6 +133,7 @@ public class ProductDaoConcrete implements ProductDao {
             st = cn.createStatement();
             rs = st.executeQuery(sql);
             while (rs.next()) {
+
                 if(Objects.equals(rs.getString("product"), "book")) {
                     product = Book.getInstance(rs.getInt("id_product"), rs.getString("title"), rs.getString("author"), rs.getBoolean("available"), rs.getString("owner"));
                 }else if (Objects.equals(rs.getString("product"), "ebook")) {

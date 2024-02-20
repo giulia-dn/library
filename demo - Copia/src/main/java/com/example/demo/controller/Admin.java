@@ -110,11 +110,11 @@ public class Admin {
     public void aggiungiNP(ActionEvent actionEvent) {
         if(!idNPText.getText().equals("") && !productNPText.getText().equals("") && !titleNPText.getText().equals("") && !authorNPText.getText().equals("")) {
             if(productNPText.getText().equals("book")){
-                Product book = Book.getInstance(Integer.parseInt(idNPText.getText()), titleNPText.getText(), authorNPText.getText(), true, null);
+                Product book = Book.getInstance(Integer.parseInt(idNPText.getText()), titleNPText.getText(), authorNPText.getText(), true, "null");
                 pdc.addProduct(book);
             }
             else if(productNPText.getText().equals("ebook")){
-                Product ebook = Ebook.getInstance(Integer.parseInt(idNPText.getText()), titleNPText.getText(), authorNPText.getText(), true, null);
+                Product ebook = Ebook.getInstance(Integer.parseInt(idNPText.getText()), titleNPText.getText(), authorNPText.getText(), true, "null");
                 pdc.addProduct(ebook);
             }
             showTableProduct();

@@ -8,25 +8,21 @@ class CartTest {
 
     @Test
     void add() {
+        Product prova =Book.getInstance(0, "prova", "prova", true, "prova");
+        Cart cart = new Cart();
+        cart.add(prova);
+        assertEquals(1, cart.getTotal());
+        assertFalse(prova.isAvailable());
+
     }
 
     @Test
     void remove() {
-    }
-
-    @Test
-    void getTotal() {
-    }
-
-    @Test
-    void getProducts() {
-    }
-
-    @Test
-    void subscribe() {
-    }
-
-    @Test
-    void notif() {
+        Product prova =Book.getInstance(0, "prova", "prova", true, "prova");
+        Cart cart = new Cart();
+        cart.add(prova);
+        cart.remove(prova);
+        assertEquals(0, cart.getTotal());
+        assertTrue(prova.isAvailable());
     }
 }

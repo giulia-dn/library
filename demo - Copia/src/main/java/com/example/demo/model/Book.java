@@ -18,8 +18,12 @@ public class Book implements Product {
     }
     public static Book getInstance(int id_book, String title, String author, boolean available, String owner){
         Book book;
+        if (owner == null){
+            return book = new Book(id_book, title, author, available, "null");
+        }
         return book = new Book(id_book, title, author, available, owner);
     }
+
 
     @Override
     public int getId_product() {
